@@ -1,0 +1,8 @@
+function y = distortion(x, gain, mix)
+    N=length(x);
+    y = zeros(1,N);
+    for n=1:N
+        a = - gain * abs(x(n));
+        y(n) = (x(n)/abs(x(n))) * (1 - exp(a));
+    end
+end
