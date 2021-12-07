@@ -1,9 +1,9 @@
-function y = fircomb(x, ms, g, Fs)
+function y = firdelay(x, ms, g, Fs)
     M = round(ms*Fs/1000);
     z = tf('z', 0.1);
-    H = 1+g*z^-M;
+    H = 1+g*z^-M; % the transfer function
 
-    [y,~]=lsim(H,x);
+    [y,~]=lsim(H,x); %apply the transfer function to the signal
 end
 
 

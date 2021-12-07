@@ -1,5 +1,6 @@
 function y = overdrive(x)
     N=length(x);
+    %preallocate y
     y = zeros(1,N);
     for n=1:N
         if abs(x(n))< 1/3 %check if in lower 1/3

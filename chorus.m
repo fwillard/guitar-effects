@@ -15,8 +15,10 @@ function y = chorus(x, rate, depth, Fs)
     y(1:MAX_DELAY)=x(1:MAX_DELAY);
     
     for n = MAX_DELAY + 1:length(x)
+        %compute delays
         M1 = round((MAX_DELAY/2)*(1 + sin(2*pi*rate*n*T)));
         M2 = round((MAX_DELAY/2)*(1 + cos(2*pi*rate*n*T)));
         M3 = round((MAX_DELAY/2)*(1 + sin(2*pi*rate*n*T + pi/4)));
+        %compute output signal
         y(n) = x(n) + depth * x(n-M1) + depth * x(n-M2) + depth * x(n-M3);
     end
